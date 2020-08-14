@@ -4,10 +4,8 @@ const bodyParser = require("body-parser");
 
 const cors = require("cors");
 
-const uri =
-  "mongodb+srv://macknz7:I6ZoDlS9ipLuP8qB@cluster0.j79xz.mongodb.net/grey?retryWrites=true&w=majority";
 const mongoose = require("mongoose");
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.URI, { useNewUrlParser: true, useUnifiedTopology: true });
 // const collection = client.db("grey").collection("swanky");
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
